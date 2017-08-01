@@ -1,3 +1,7 @@
+# Mood-Tracker
+This is an andriod App that is build on top of Microsoft's Cognitive sample App. It keeps track of your moods when the API analyzes it. The additions are Emojis provided by EmojiOne: https://www.emojione.com/. Also, there is now a custome theme to the app and an additional journal for tracking the moods.
+
+
 # Microsoft Emotion API: Android Client Library & Sample
 This repo contains the Android client library & sample for the Microsoft Emotion API, an offering within [Microsoft Cognitive Services](https://www.microsoft.com/cognitive-services), formerly known as Project Oxford.
 * [Learn about the Emotion API](https://www.microsoft.com/cognitive-services/en-us/emotion-api)
