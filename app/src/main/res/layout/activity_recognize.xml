@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:addStatesFromChildren="true"
+    android:background="#FF000000"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.microsoft.projectoxford.emotionsample.RecognizeActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:weightSum="1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="Select an image to analyze"
+            android:textColor="@color/background_floating_material_light"/>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="1">
+
+            <ImageView
+                android:id="@+id/selectedImage"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_toEndOf="@+id/image_control"
+                android:layout_toRightOf="@+id/image_control"
+                android:background="#E0E0E0" />
+
+            <Button
+                android:id="@+id/buttonSelectImage"
+                style="@style/ButtonStyle"
+                android:layout_width="73dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_weight="0.61"
+                android:onClick="selectImage"
+                android:text="Select Image" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/editTextResult"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="false"
+
+            android:layout_weight="0.25"
+            android:textAppearance="@android:style/TextAppearance.Holo.Medium"
+            android:textColor="@color/background_floating_material_light" />
+
+        <Button
+            android:id="@+id/buttonSong"
+            style="@style/ButtonStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+
+            android:onClick="activitySong"
+            android:text="Answer" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Emoji artwork provided by EmojiOne"
+            android:textColor="@color/background_floating_material_light"
+            android:textSize="10sp"
+            android:layout_marginTop="30dp"
+            android:visibility="invisible" />
+
+    </LinearLayout>
+
+
+
+</RelativeLayout>
