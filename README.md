@@ -1,5 +1,5 @@
 # Mood-Tracker
-This is an andriod App that is build on top of Microsoft's Cognitive sample App. It keeps track of your moods when the API analyzes it. The additions are Emojis provided by EmojiOne: https://www.emojione.com/. Also, there is now a custome theme to the app and an additional journal for tracking the moods.
+This is an andriod App that is built on top of Microsoft's Cognitive API. It keeps track of your moods after the API analyzes a selected picture. The additions are Emojis provided by EmojiOne: https://www.emojione.com/. Also, there is now a custome theme to the app and an additional journal for tracking the moods.
 
 
 # Microsoft Emotion API: Android Client Library & Sample
