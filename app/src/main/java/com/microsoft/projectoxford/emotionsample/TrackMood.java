@@ -1,6 +1,4 @@
 package com.microsoft.projectoxford.emotionsample;
-
-
 import android.opengl.EGLDisplay;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -37,12 +35,6 @@ public class TrackMood extends ActionBarActivity {
     static ArrayList<String> list = new ArrayList<String>();
     String currentDateTimeString = DateFormat.getDateTimeInstance().format(new Date());
 
-    //String MY_FILE_NAME = "mytextfile.txt";
-    // Create a new output file stream
-   // FileOutputStream fileos = openFileOutput(MY_FILE_NAME, Context.MODE_PRIVATE);
-    // Create a new file input stream.
-   // FileInputStream fileis = openFileInput(MY_FILE_NAME);
-
     public TrackMood() throws FileNotFoundException {
     }
 
@@ -50,40 +42,33 @@ public class TrackMood extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood);
-
         final TextView tv1 = (TextView) findViewById(R.id.textMood);
         tv1.setText(RecognizeActivity.stringMax);
         saveButton = (Button) findViewById(R.id.buttonSave);
         goSaved = (Button) findViewById(R.id.goSave);
         sharedPreference = new SharedPreference();
         final EditText ed = (EditText) findViewById(R.id.editText3); //possiable can't append to a fianl String
-        //text = ed.getText().toString();
+     
         saveButton.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 text = ed.getText().toString();
                 // Hides the soft keyboard
                 InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
                 imm.hideSoftInputFromWindow(ed.getWindowToken(), 0);
-
-                // Save the text in SharedPreference
                 sharedPreference.save(context, text);
                 Toast.makeText(context,
                         getResources().getString(R.string.saved),
                         Toast.LENGTH_LONG).show();
-               list.add(text);
+                         list.add(text);
                 if(!(text.equals(""))) {
                     try {
                         FileOutputStream fileout = openFileOutput(("mytextfile.txt"), MODE_APPEND);
                         OutputStreamWriter outputWriter = new OutputStreamWriter(fileout);
-
                         outputWriter.append("On " + " " + currentDateTimeString + " You felt: " +
-                                RecognizeActivity.stringMax + " because " + text);
+                                            RecognizeActivity.stringMax + " because " + text);
                         outputWriter.append("\n\r");
                         outputWriter.close();
-                        // fileout.close();
-
                         //display file saved message
                         Toast.makeText(getBaseContext(), "File saved successfully!",
                                 Toast.LENGTH_SHORT).show();
