@@ -1,3 +1,5 @@
+
+// Mood Journal (Saved Moods)
 package com.microsoft.projectoxford.emotionsample;
 
 import android.content.Intent;
@@ -31,6 +33,7 @@ import java.io.FileWriter;
 import java.io.BufferedWriter;
 import android.text.method.ScrollingMovementMethod;
 import java.io.DataInputStream;
+
 public class saved extends ActionBarActivity {
     private TextView textTxt;
     private String text;
@@ -44,9 +47,10 @@ public class saved extends ActionBarActivity {
     private String hold;
     ArrayList<String> list = TrackMood.list;
     List<String> Names = new ArrayList<String>();
-    //private int number = RecognizeActivity.num;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved);
         getSupportActionBar().setTitle("Emoji artwork provided by EmojiOne");
@@ -57,7 +61,9 @@ public class saved extends ActionBarActivity {
         text = sharedPreference.getValue(context);
         FileInputStream fis;
         final StringBuffer storedString = new StringBuffer();
+        
         try {
+            
             fis = openFileInput("mytextfile.txt");
             final DataInputStream dataIO = new DataInputStream(fis);
             final DataInputStream dataIOO = new DataInputStream(fis);
@@ -75,6 +81,7 @@ public class saved extends ActionBarActivity {
                 int indexEnd = mood.indexOf(" ",index+1);
                 String result="";
                 int i = index;
+                
                 while (i<=indexEnd){
                     result = result+mood.charAt(i);
                     if(result.equals(" Happy")){
@@ -109,8 +116,9 @@ public class saved extends ActionBarActivity {
             fis.close();
         } catch (Exception e) {
         }
+        
+        // Clears all Saved Moods
         buttonDel.setText("Clear All");
-
         buttonDel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -137,10 +145,7 @@ public class saved extends ActionBarActivity {
                     }
                 });
 
-
             }
-
-
         });
        
     }
