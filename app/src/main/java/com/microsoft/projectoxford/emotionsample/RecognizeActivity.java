@@ -104,9 +104,7 @@ public class RecognizeActivity extends ActionBarActivity {
         }
         public  double getEmotio(int pos){
             return emotio[pos];
-
         }
-
 
     //Button for songs
     Button songButton;
@@ -221,7 +219,6 @@ public class RecognizeActivity extends ActionBarActivity {
                 break;
         }
     }
-
 
     private List<RecognizeResult> processWithAutoFaceDetection() throws EmotionServiceException, IOException {
         Log.d("emotion", "Start emotion detection with auto-face detection");
@@ -371,9 +368,7 @@ public class RecognizeActivity extends ActionBarActivity {
             // Display based on error existence
 
             if (this.useFaceRectangles == false) {
-              //  mEditText.append("\n\nRecognizing emotions with auto-detected face rectangles...\n");
             } else {
-               // mEditText.append("\n\nRecognizing emotions with existing face rectangles from Face API...\n");
             }
             if (e != null) {
                 mEditText.setText("Error: " + e.getMessage());
@@ -393,24 +388,14 @@ public class RecognizeActivity extends ActionBarActivity {
                     paint.setColor(Color.RED);
 
                     for (RecognizeResult r : result) {
-                       // mEditText.append(String.format("\nFace #%1$d \n", count));
-                      //  mEditText.append(String.format("\t anger: %1$.5f\n", r.scores.anger));
                         emotio[0] = r.scores.anger;
-                       // mEditText.append(String.format("\t contempt: %1$.5f\n", r.scores.contempt));
                         emotio[1] = r.scores.contempt;
-                      //  mEditText.append(String.format("\t disgust: %1$.5f\n", r.scores.disgust));
                         emotio[2] = r.scores.disgust;
-                      //  mEditText.append(String.format("\t fear: %1$.5f\n", r.scores.fear));
                         emotio[3] = r.scores.fear;
-                      //  mEditText.append(String.format("\t happiness: %1$.5f\n", r.scores.happiness));
                         emotio[4] = r.scores.happiness;
-                       // mEditText.append(String.format("\t neutral: %1$.5f\n", r.scores.neutral));
                         emotio[5] = r.scores.neutral;
-                      //  mEditText.append(String.format("\t sadness: %1$.5f\n", r.scores.sadness));
                         emotio[6] = r.scores.sadness;
-                      //  mEditText.append(String.format("\t surprise: %1$.5f\n", r.scores.surprise));
                         emotio[7] = r.scores.surprise;
-                       // mEditText.append(String.format("\t face rectangle: %d, %d, %d, %d", r.faceRectangle.left, r.faceRectangle.top, r.faceRectangle.width, r.faceRectangle.height));
                         faceCanvas.drawRect(r.faceRectangle.left,
                                 r.faceRectangle.top,
                                 r.faceRectangle.left + r.faceRectangle.width,
@@ -463,13 +448,8 @@ public class RecognizeActivity extends ActionBarActivity {
                         mEditText.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.disquest);
                     }
                 }
-                // mEditText.setSelection(0);
-
             }
-
             mButtonSelectImage.setEnabled(true);
-
-
         }
     }
 
@@ -506,7 +486,6 @@ public class RecognizeActivity extends ActionBarActivity {
         if(pos == 7)
             stringMax = "Surprised";
 
-      //return stringMax;
    }
 }
 
