@@ -106,8 +106,8 @@ public class RecognizeActivity extends ActionBarActivity {
             return emotio[pos];
         }
 
-    //Button for songs
-    Button songButton;
+    //Button for Answering your mood
+    Button answerButton;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -124,8 +124,8 @@ public class RecognizeActivity extends ActionBarActivity {
         if (client == null) {
             client = new EmotionServiceRestClient(getString(R.string.subscription_key));
         }
-        songButton = (Button) findViewById(R.id.buttonSong);
-        songButton.setVisibility(View.INVISIBLE);
+        answerButton = (Button) findViewById(R.id.buttonSong);
+        answerButton.setVisibility(View.INVISIBLE);
         mButtonSelectImage = (Button) findViewById(R.id.buttonSelectImage);
         mEditText = (TextView) findViewById(R.id.editTextResult);
         textView = (TextView) findViewById(R.id.textView2);
@@ -170,7 +170,6 @@ public class RecognizeActivity extends ActionBarActivity {
 
         String faceSubscriptionKey = getString(R.string.faceSubscription_key);
         if (faceSubscriptionKey.equalsIgnoreCase("5fa1343c99ed4ad6b6e7a819f90f60f8")) {
-            // mEditText.append("\n\nThere is no face poop subscription key in res/values/strings.xml. Skip the sample for detecting emotions using face rectangles\n");
         } else {
             // Do emotion detection using face rectangles provided by Face API.
             try {
@@ -410,7 +409,7 @@ public class RecognizeActivity extends ActionBarActivity {
                     }
                     ImageView imageView = (ImageView) findViewById(R.id.selectedImage);
                     imageView.setImageDrawable(new BitmapDrawable(getResources(), mBitmap));
-                    songButton.setVisibility(View.VISIBLE);
+                    answerButton.setVisibility(View.VISIBLE);
                     setMax();
                     if(stringMax.equals("Happy")){
                         mEditText.setCompoundDrawablesWithIntrinsicBounds(0,0,0,R.drawable.happy);
