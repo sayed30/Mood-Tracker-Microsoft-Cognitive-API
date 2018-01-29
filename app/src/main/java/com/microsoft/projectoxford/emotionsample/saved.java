@@ -47,40 +47,23 @@ public class saved extends ActionBarActivity {
     //private int number = RecognizeActivity.num;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        //getActionBar().setTitle("Journal");
-        //LinearLayout linearLayout = new LinearLayout(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_saved);
         getSupportActionBar().setTitle("Emoji artwork provided by EmojiOne");
         LinearLayout ll = (LinearLayout) findViewById(R.id.linearLayout1);
         ll.setOrientation(LinearLayout.VERTICAL);
-        // textTxt = (TextView) findViewById(R.id.textView2);
         buttonDel = (Button)findViewById(R.id.button);
         sharedPreference = new SharedPreference();
-
         text = sharedPreference.getValue(context);
-        // ll.setMovementMethod(new ScrollingMovementMethod());
         FileInputStream fis;
-
         final StringBuffer storedString = new StringBuffer();
-
         try {
             fis = openFileInput("mytextfile.txt");
             final DataInputStream dataIO = new DataInputStream(fis);
             final DataInputStream dataIOO = new DataInputStream(fis);
             String strLine = null;
-
             while ((strLine = dataIO.readLine()) != null) {
-                // strLine = null;
-                // storedString.append(strLine);
-                // text1.setText(strLine);
-                 final TextView textView1 = new TextView(this);
-                //final TextView textView1 = new TextView(this);
-
-                //final Button buttonDel = new Button(this);
-                //buttonDel.setText("Delete");
-                // ll.addView(buttonDel);
-              // textView1.setText(strLine);
+                final TextView textView1 = new TextView(this);
                 textView1.setTextColor(this.getResources().getColor(R.color.background_material_light));
                 GradientDrawable gd = new GradientDrawable();
                 gd.setColor(0xFF00FF00); // Changes this drawbale to use a single color instead of a gradient
@@ -121,22 +104,12 @@ public class saved extends ActionBarActivity {
                     i++;
                 }
                 textView1.setText(strLine);
-
-
-
-               // textView1.setText(result);
-                // ll.addView(buttonDel);
             }
             dataIO.close();
             fis.close();
         } catch (Exception e) {
         }
-
-       // buttonDel = new Button(this);
-
-        //final Button finalButtonDel=new Button(this);
-         buttonDel.setText("Clear All");
-       // ll.addView(buttonDel);
+        buttonDel.setText("Clear All");
 
         buttonDel.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -149,9 +122,6 @@ public class saved extends ActionBarActivity {
                     public boolean onMenuItemClick(MenuItem item) {
                         Toast.makeText(saved.this, "You Clicked : " + item.getTitle(), Toast.LENGTH_SHORT).show();
                         hold = item.getTitle().toString();
-                        // popup.inflate();
-                       // popup.show();
-
                 if(hold.equals("Yes")) {
                     try {
                         FileOutputStream fileout = openFileOutput(("mytextfile.txt"), MODE_PRIVATE);
@@ -172,13 +142,6 @@ public class saved extends ActionBarActivity {
 
 
         });
-        // strLine = null;
+       
     }
     }
-
-       // textTxt.setText(text);
-        // Create a new text view each time (at bottom of prev)
-
-
-
-
